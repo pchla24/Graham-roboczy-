@@ -5,6 +5,7 @@ public class Points {
 
 	Point[] pts;
 	int nPoints;
+	StackOfPoints ptsS = new StackOfPoints(nPoints);
 	
 	public Points(int max){
 		pts = new Point[max];
@@ -62,6 +63,5 @@ public class Points {
 		for(j=0; j<n; j++)
 			pts[lowerBound+j] = secArr[j];
 	} 
-	
 	
 }
