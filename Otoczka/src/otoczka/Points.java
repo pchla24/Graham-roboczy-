@@ -82,13 +82,16 @@ public class Points {
 		this.mergeSort();
 		
 		ptsS.push(pts[0]);
+		ptsS.push(pts[1]);
 		for(int i=0; i<nPoints-2; i++) {
-			int result = isCounterClockwise(pts[i], pts[i+1], pts[i+2]);
+			int result = isCounterClockwise(ptsS.ptsStack.get(i), ptsS.ptsStack.get(i+1), pts[i+2]);
 			if(result == 1 || result == 0)
-				ptsS.push(pts[i+1]);
+				ptsS.push(pts[i+2]);
 			else 
+				ptsS.pop();
 				ptsS.push(pts[i+2]);
 		}
+		ptsS.pop();
 	}
 	
 }
