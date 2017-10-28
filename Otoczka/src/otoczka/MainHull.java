@@ -20,9 +20,12 @@ public class MainHull {
 		
 		points.printPoints();
 		System.out.println("///////////////////////////////");
+
+		points.doGrahamScan();
 		
-		points.mergeSort();				// chyba jest ok
-		points.printPoints();
+		points.ptsS.printStack();
 	}
 
 }
+
+

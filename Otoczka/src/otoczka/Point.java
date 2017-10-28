@@ -25,9 +25,9 @@ public class Point implements CompareP {
 	        double dy = p.y - this.y;
 	        double result = Math.atan2(dy, dx);
 	        if(result < 0)
-	        	return 1;
-	        else if(result > 0)
 	        	return -1;
+	        else if(result > 0)
+	        	return 1;
 	        else
 	        	return 0;
 	}

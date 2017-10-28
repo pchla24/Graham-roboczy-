@@ -23,4 +23,10 @@ public class StackOfPoints {
 		tmp = ptsStack.remove(ptsStack.size() - 1);
 		return tmp;
 	}
+	
+	public void printStack() {
+		for(int i=0; i<ptsStack.size(); i++)
+			System.out.println("Stos: Punkt( " + ptsStack.get(i).getX() + ", " 
+					+ ptsStack.get(i).getY() + " )");
+	}
 }
