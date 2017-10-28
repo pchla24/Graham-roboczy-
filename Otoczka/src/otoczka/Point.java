@@ -22,15 +22,19 @@ public class Point implements CompareP {
 	@Override
 	public int compare(Point p) {
 		
-		double dx = p.x - this.x;
-	        double dy = p.y - this.y;
-	        double result = Math.atan2(dy, dx);
-	        if(result < 0)
-	        	return -1;
-	        else if(result > 0)
-	        	return 1;
-	        else
-	        	return 0;
+		double angle;
+		angle = this.x*p.y - this.y*p.x;
+		if(angle > 0)
+			return 1;
+		else if(angle < 0)
+			return -1;
+		else {
+			if(this.x < p.x)
+				return -1;
+			else
+				return 1;
+		}
+
 	}
 
 }
