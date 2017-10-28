@@ -21,7 +21,8 @@ public class Point implements CompareP {
 
 	@Override
 	public int compare(Point p) {
-			double dx = p.x - this.x;
+		
+		double dx = p.x - this.x;
 	        double dy = p.y - this.y;
 	        double result = Math.atan2(dy, dx);
 	        if(result < 0)

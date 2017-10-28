@@ -70,9 +70,9 @@ public class Points {
 		double area = (b.getX()-a.getX())*(c.getY()-a.getY()) - (b.getY()-a.getY())*(c.getX()-a.getX());
 		
 		if(area < 0)
-			return -1;
-		else if(area > 0)
 			return 1;
+		else if(area > 0)
+			return -1;
 		else 
 			return 0;
 	}
@@ -80,18 +80,29 @@ public class Points {
 	public void doGrahamScan() {
 		
 		this.mergeSort();
+		this.printPoints();
+		System.out.println("===============");
 		
 		ptsS.push(pts[0]);
 		ptsS.push(pts[1]);
-		for(int i=0; i<nPoints-2; i++) {
-			int result = isCounterClockwise(ptsS.ptsStack.get(i), ptsS.ptsStack.get(i+1), pts[i+2]);
-			if(result == 1 || result == 0)
+		ptsS.printStack();
+		System.out.println("===============");
+		for(int i=0, j=1; i<nPoints-2; i++) {
+			int result = isCounterClockwise(ptsS.ptsStack.get(j-1), ptsS.ptsStack.get(j), pts[i+2]);
+			if(result == 1 || result == 0) {
 				ptsS.push(pts[i+2]);
-			else 
+				j++;
+			}
+			else {
 				ptsS.pop();
 				ptsS.push(pts[i+2]);
+				
+			}
+			
+			ptsS.printStack();
+			System.out.println("///////////////////////////////");
 		}
-		ptsS.pop();
+		
 	}
 	
 }
