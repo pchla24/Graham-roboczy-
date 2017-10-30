@@ -21,15 +21,15 @@ public class MainHull {
 			points.add(p);
 		}
 		
-		//points.printPoints();
+		//points.printPoints();				//sprawdzenie czy dobrze przeczyta³ z pliku
 		
 		
-		//points.mergeSort();
-		//points.printPoints();
+		//points.mergeSort();	
+		//points.printPoints();				// test sortowania
 
 		points.doGrahamScan();
 		
-		//points.ptsS.printStack();*/
+		
 	}
 
 }

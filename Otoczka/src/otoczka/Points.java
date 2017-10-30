@@ -65,17 +65,12 @@ public class Points {
 	} 
 	
 	
-	public static int isCounterClockwise(Point a, Point b, Point c) {
-		
-		double area = (b.getX()-a.getX())*(c.getY()-a.getY()) - (b.getY()-a.getY())*(c.getX()-a.getX());
-		
-		if(area < 0)
-			return 1;
-		else if(area > 0)
-			return -1;
-		else 
-			return 0;
-	}
+	private boolean isCounterClockwise(Point a, Point b, Point c) {
+        double r = (c.getX() - b.getX())*(a.getY() - b.getY())
+                - (a.getX() - b.getX())*(c.getY() - b.getY());
+        return r > 0;
+
+    }
 	
 	public void doGrahamScan() {
 		
@@ -85,23 +80,18 @@ public class Points {
 		
 		ptsS.push(pts[0]);
 		ptsS.push(pts[1]);
-		ptsS.printStack();
-		System.out.println("===============");
-		for(int i=0, j=1; i<nPoints-2; i++) {
-			int result = isCounterClockwise(ptsS.ptsStack.get(j-1), ptsS.ptsStack.get(j), pts[i+2]);
-			if(result == 1 || result == 0) {
-				ptsS.push(pts[i+2]);
-				j++;
-			}
-			else {
-				ptsS.pop();
-				ptsS.push(pts[i+2]);
-				
-			}
-			
-			ptsS.printStack();
-			System.out.println("///////////////////////////////");
+		Point b, c;
+		for(int i = 2; i < pts.length; i++) {
+            b = ptsS.pop();
+            c = pts[i];
+            while(isCounterClockwise(ptsS.peek(), b, c)) {
+                b = ptsS.pop();
+            }
+            ptsS.push(b);
+            ptsS.push(c);
 		}
+		
+		ptsS.printStack();
 		
 	}
 	
