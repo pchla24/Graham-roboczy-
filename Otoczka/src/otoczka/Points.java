@@ -17,6 +17,7 @@ public class Points {
 	}
 	
 	public void printPoints() {
+		System.out.println("Punkty:");
 		for(int i=0; i < nPoints; i++) {
 			System.out.println("Punkt( " + pts[i].getX() + ", " + pts[i].getY() + " )");
 		}
@@ -74,8 +75,9 @@ public class Points {
 	
 	public void doGrahamScan() {
 		
-		this.mergeSort();
+		AreaOfPolygon area = new AreaOfPolygon();
 		this.printPoints();
+		this.mergeSort();
 		System.out.println("===============");
 		
 		ptsS.push(pts[0]);
@@ -91,7 +93,12 @@ public class Points {
             ptsS.push(c);
 		}
 		
+		double fullArea = area.calculateArea(ptsS.ptsStack, ptsS.ptsStack.get(0));
+		
 		ptsS.printStack();
+		System.out.println("===============");
+		System.out.println("Powierzchnia wieloboku:");
+		System.out.println(fullArea);
 		
 	}
 	

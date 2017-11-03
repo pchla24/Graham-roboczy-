@@ -29,8 +29,9 @@ public class StackOfPoints {
 	}
 	
 	public void printStack() {
+		System.out.println("Stos:");
 		for(int i=0; i<ptsStack.size(); i++)
-			System.out.println("Stos: Punkt( " + ptsStack.get(i).getX() + ", " 
+			System.out.println("Punkt( " + ptsStack.get(i).getX() + ", " 
 					+ ptsStack.get(i).getY() + " )");
 	}
 }
